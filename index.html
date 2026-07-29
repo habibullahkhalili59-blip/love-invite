@@ -8,21 +8,20 @@
 body{
 margin:0;
 height:100vh;
-background:linear-gradient(135deg,#050505,#5b0025);
+background:linear-gradient(135deg,#080808,#68002e);
 display:flex;
 justify-content:center;
 align-items:center;
 font-family:tahoma;
 color:white;
-overflow:hidden;
 }
 
 .card{
 width:90%;
-max-width:450px;
-padding:35px;
+max-width:430px;
 background:#ffffff18;
 backdrop-filter:blur(15px);
+padding:30px;
 border-radius:30px;
 text-align:center;
 box-shadow:0 0 40px #ff0055;
@@ -30,21 +29,20 @@ box-shadow:0 0 40px #ff0055;
 
 h1{
 color:#ffd700;
-font-size:35px;
 }
 
 p{
-font-size:20px;
+font-size:19px;
 line-height:2;
 }
 
 button{
-padding:15px 35px;
+padding:14px 35px;
 border:none;
 border-radius:30px;
 font-size:18px;
-cursor:pointer;
 margin:10px;
+cursor:pointer;
 }
 
 .yes{
@@ -60,15 +58,15 @@ position:relative;
 
 input{
 padding:12px;
-margin:8px;
 border-radius:20px;
 border:none;
+margin:8px;
 width:80%;
 }
 
 .food{
 display:inline-block;
-background:#ffffff22;
+background:#ffffff25;
 padding:10px;
 margin:5px;
 border-radius:20px;
@@ -84,15 +82,15 @@ animation:pulse 1s infinite;
 }
 
 @keyframes pulse{
-50%{transform:scale(1.2);}
+50%{
+transform:scale(1.2);
 }
-
+}
 </style>
 
 </head>
 
 <body>
-
 
 <form action="https://formspree.io/f/mbdnbraa" method="POST">
 
@@ -121,12 +119,15 @@ animation:pulse 1s infinite;
 </div>
 
 
-
 <div class="card hide" id="p2">
 
-<h1>انتخاب زمان 📅</h1>
+<h1>زمان ملاقات 📅</h1>
 
-<input type="date" name="date" required>
+<p>
+یک روز را انتخاب کن ❤️
+</p>
+
+<input type="date" id="date" name="date" required>
 
 <input type="time" name="time" required>
 
@@ -137,15 +138,13 @@ animation:pulse 1s infinite;
 </button>
 
 </div>
-
-
-
-
 <div class="card hide" id="p3">
 
 <h1>انتخاب خوراکی 🍽️</h1>
 
-<p>چی دوست داری بخوریم؟</p>
+<p>
+دوست داری چی بخوریم؟ 😊
+</p>
 
 
 <label class="food">
@@ -153,37 +152,44 @@ animation:pulse 1s infinite;
 🥤 جوس
 </label>
 
+
 <label class="food">
 <input type="radio" name="food" value="پیتزا">
 🍕 پیتزا
 </label>
+
 
 <label class="food">
 <input type="radio" name="food" value="آیسکریم">
 🍦 آیسکریم
 </label>
 
+
 <label class="food">
 <input type="radio" name="food" value="کباب">
 🥩 کباب
 </label>
+
 
 <label class="food">
 <input type="radio" name="food" value="قابلی">
 🍚 قابلی
 </label>
 
+
 <label class="food">
 <input type="radio" name="food" value="منتو">
 🥟 منتو
 </label>
+
 
 <label class="food">
 <input type="radio" name="food" value="آشک">
 🥘 آشک
 </label>
 
-<br>
+
+<br><br>
 
 <button type="submit" class="yes">
 ثبت قرار ❤️
@@ -191,6 +197,25 @@ animation:pulse 1s infinite;
 
 </div>
 
+
+
+<div class="card hide" id="p4">
+
+<div class="heart">❤️</div>
+
+<h1>معصومه عزیز</h1>
+
+<p>
+قرار ما ثبت شد 🌹<br><br>
+
+مهم نیست کجا برویم یا چی بخوریم...<br>
+قشنگ‌ترین بخش این ملاقات،
+لحظه‌ای است که کنار تو سپری می‌شود ❤️<br><br>
+
+امیدوارم این روز یکی از خاطره‌های زیبای زندگی‌مان شود ✨
+</p>
+
+</div>
 
 
 </form>
@@ -201,8 +226,10 @@ animation:pulse 1s infinite;
 
 function showPage(number){
 
-document.querySelectorAll(".card").forEach(function(e){
-e.classList.add("hide");
+document.querySelectorAll(".card").forEach(function(card){
+
+card.classList.add("hide");
+
 });
 
 document.getElementById("p"+number).classList.remove("hide");
@@ -210,15 +237,39 @@ document.getElementById("p"+number).classList.remove("hide");
 }
 
 
+
 function moveNo(){
 
 let no=document.getElementById("no");
 
 no.style.position="absolute";
+
 no.style.left=Math.random()*250+"px";
+
 no.style.top=Math.random()*300+"px";
 
 }
+
+
+
+// محدود کردن تاریخ به یک هفته
+
+let today=new Date();
+
+let minDate=today.toISOString().split("T")[0];
+
+
+let future=new Date();
+
+future.setDate(today.getDate()+7);
+
+let maxDate=future.toISOString().split("T")[0];
+
+
+document.getElementById("date").min=minDate;
+
+document.getElementById("date").max=maxDate;
+
 
 </script>
 
