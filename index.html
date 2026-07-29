@@ -2,69 +2,113 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>برای معصومه ❤️</title>
+<title>دعوت ویژه برای معصومه ❤️</title>
 
 <style>
+*{
+ box-sizing:border-box;
+ font-family:tahoma;
+}
+
 body{
-    margin:0;
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
-    font-family:Tahoma;
-    overflow:hidden;
+ margin:0;
+ height:100vh;
+ background:linear-gradient(135deg,#080808,#3b0015);
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ overflow:hidden;
+ color:white;
 }
 
 .card{
-    background:white;
-    width:80%;
-    max-width:450px;
-    padding:35px;
-    text-align:center;
-    border-radius:25px;
-    box-shadow:0 10px 30px #888;
+ width:90%;
+ max-width:450px;
+ background:rgba(255,255,255,0.1);
+ backdrop-filter:blur(15px);
+ border-radius:30px;
+ padding:35px;
+ text-align:center;
+ box-shadow:0 0 40px #ff1744;
 }
 
 h1{
-    color:#e91e63;
-    font-size:40px;
+ color:#ffd700;
+ font-size:38px;
 }
 
 p{
-    font-size:20px;
-    line-height:2;
-    color:#444;
-}
-
-.heart{
-    font-size:70px;
-    animation:beat 1s infinite;
+ font-size:20px;
+ line-height:2;
 }
 
 button{
-    background:#e91e63;
-    color:white;
-    border:none;
-    padding:15px 30px;
-    border-radius:30px;
-    font-size:18px;
+ border:none;
+ border-radius:30px;
+ padding:15px 35px;
+ margin:10px;
+ font-size:18px;
+ cursor:pointer;
+ transition:.4s;
 }
 
-@keyframes beat{
-    50%{transform:scale(1.2);}
+.yes{
+ background:#e91e63;
+ color:white;
+}
+
+.no{
+ background:#555;
+ color:white;
+ position:relative;
+}
+
+input,select{
+ width:90%;
+ padding:12px;
+ margin:10px;
+ border-radius:20px;
+ border:none;
+ font-size:16px;
+}
+
+.food{
+ display:inline-block;
+ background:#ffffff22;
+ padding:12px;
+ margin:5px;
+ border-radius:20px;
+ cursor:pointer;
+}
+
+.food:hover{
+ background:#ffd700;
+ color:black;
+}
+
+.heart{
+ font-size:60px;
+ animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+50%{transform:scale(1.2);}
+}
+
+.hide{
+display:none;
 }
 
 .fall{
-    position:absolute;
-    top:-20px;
-    animation:fall 5s linear infinite;
+position:absolute;
+top:-20px;
+animation:fall 6s linear infinite;
 }
 
 @keyframes fall{
-    to{
-        transform:translateY(110vh);
-    }
+to{
+transform:translateY(110vh);
+}
 }
 </style>
 
@@ -72,39 +116,130 @@ button{
 
 <body>
 
-<div class="card">
+<div class="card" id="page1">
 
 <div class="heart">❤️</div>
 
 <h1>معصومه</h1>
 
 <p>
-گاهی یک نفر وارد زندگی آدم می‌شود
-که بودنش آرامش می‌دهد...
-<br><br>
-معصومه عزیز، تو برای من فقط یک اسم نیستی،
-تو یک حس قشنگی هستی که باعث می‌شود لبخند بزنم.
-<br><br>
-امیدوارم همیشه خوشحال، موفق و پر از آرامش باشی.
-❤️
+یک سوال خاص از تو دارم... 🌹<br>
+می‌خایی یک خاطره قشنگ را با هم بسازیم؟
 </p>
 
-<button onclick="alert('همیشه به یادت هستم ❤️')">
-کلیک کن
+<button class="yes" id="yes" onclick="next(2)">
+❤️ بله
+</button>
+
+<button class="no" id="no" onmouseover="moveNo()">
+🤍 نخیر
 </button>
 
 </div>
 
 
+<div class="card hide" id="page2">
+
+<h1>قرار ما ❤️</h1>
+
+<p>
+پس خوشحالم که قبول کردی 🌹<br>
+حالا زمان مناسب را انتخاب کن
+</p>
+
+<input type="date">
+
+<input type="time">
+
+<button class="yes" onclick="next(3)">
+تأیید
+</button>
+
+</div>
+
+
+
+<div class="card hide" id="page3">
+
+<h1>انتخاب خوراکی 🍽️</h1>
+
+<p>
+دوست داری چی بخوریم؟ 😊
+</p>
+
+<div class="food">🥤 جوس</div>
+<div class="food">🍕 پیتزا</div>
+<div class="food">🍦 آیسکریم</div>
+<div class="food">🥩 کباب</div>
+<div class="food">🍚 قابلی</div>
+<div class="food">🥟 منتو</div>
+<div class="food">🥘 آشک</div>
+
+<br>
+
+<button class="yes" onclick="next(4)">
+آماده شد ❤️
+</button>
+
+</div>
+
+
+
+<div class="card hide" id="page4">
+
+<div class="heart">❤️</div>
+
+<h1>معصومه عزیز</h1>
+
+<p>
+قرار ما ثبت شد 🌹<br><br>
+
+مهم نیست کجا برویم یا چی بخوریم،
+قشنگ‌ترین قسمت این ملاقات،
+لحظه‌ای است که کنار هم هستیم ❤️
+</p>
+
+</div>
+
+
 <script>
-for(let i=0;i<30;i++){
- let h=document.createElement("div");
- h.className="fall";
- h.innerHTML="❤️";
- h.style.left=Math.random()*100+"%";
- h.style.animationDuration=(3+Math.random()*5)+"s";
- document.body.appendChild(h);
+
+function next(n){
+
+document.querySelectorAll(".card").forEach(x=>{
+x.classList.add("hide");
+});
+
+document.getElementById("page"+n).classList.remove("hide");
+
 }
+
+
+function moveNo(){
+
+let no=document.getElementById("no");
+let yes=document.getElementById("yes");
+
+no.style.position="absolute";
+no.style.left=Math.random()*300+"px";
+no.style.top=Math.random()*400+"px";
+
+yes.style.transform="scale(1.3)";
+
+}
+
+
+for(let i=0;i<25;i++){
+
+let h=document.createElement("div");
+h.className="fall";
+h.innerHTML="❤️";
+h.style.left=Math.random()*100+"%";
+h.style.animationDuration=(3+Math.random()*5)+"s";
+document.body.appendChild(h);
+
+}
+
 </script>
 
 </body>
