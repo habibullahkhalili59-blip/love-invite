@@ -2,89 +2,69 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>دعوت ویژه برای معصومه ❤️</title>
+<title>برای معصومه ❤️</title>
 
 <style>
 body{
-margin:0;
-height:100vh;
-background:linear-gradient(135deg,#080808,#68002e);
-display:flex;
-justify-content:center;
-align-items:center;
-font-family:tahoma;
-color:white;
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+    font-family:Tahoma;
+    overflow:hidden;
 }
 
 .card{
-width:90%;
-max-width:430px;
-background:#ffffff18;
-backdrop-filter:blur(15px);
-padding:30px;
-border-radius:30px;
-text-align:center;
-box-shadow:0 0 40px #ff0055;
+    background:white;
+    width:80%;
+    max-width:450px;
+    padding:35px;
+    text-align:center;
+    border-radius:25px;
+    box-shadow:0 10px 30px #888;
 }
 
 h1{
-color:#ffd700;
+    color:#e91e63;
+    font-size:40px;
 }
 
 p{
-font-size:19px;
-line-height:2;
-}
-
-button{
-padding:14px 35px;
-border:none;
-border-radius:30px;
-font-size:18px;
-margin:10px;
-cursor:pointer;
-}
-
-.yes{
-background:#e91e63;
-color:white;
-}
-
-.no{
-background:#555;
-color:white;
-position:relative;
-}
-
-input{
-padding:12px;
-border-radius:20px;
-border:none;
-margin:8px;
-width:80%;
-}
-
-.food{
-display:inline-block;
-background:#ffffff25;
-padding:10px;
-margin:5px;
-border-radius:20px;
-}
-
-.hide{
-display:none;
+    font-size:20px;
+    line-height:2;
+    color:#444;
 }
 
 .heart{
-font-size:60px;
-animation:pulse 1s infinite;
+    font-size:70px;
+    animation:beat 1s infinite;
 }
 
-@keyframes pulse{
-50%{
-transform:scale(1.2);
+button{
+    background:#e91e63;
+    color:white;
+    border:none;
+    padding:15px 30px;
+    border-radius:30px;
+    font-size:18px;
 }
+
+@keyframes beat{
+    50%{transform:scale(1.2);}
+}
+
+.fall{
+    position:absolute;
+    top:-20px;
+    animation:fall 5s linear infinite;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh);
+    }
 }
 </style>
 
@@ -92,187 +72,40 @@ transform:scale(1.2);
 
 <body>
 
-<form action="https://formspree.io/f/mbdnbraa" method="POST">
-
-
-<div class="card" id="p1">
+<div class="card">
 
 <div class="heart">❤️</div>
 
 <h1>معصومه</h1>
 
 <p>
-یک سوال خاص از تو دارم 🌹<br>
-می‌خایی باهم یک خاطره قشنگ بسازیم؟
-</p>
-
-<input type="hidden" name="answer" value="قبول ملاقات ❤️">
-
-<button type="button" class="yes" onclick="showPage(2)">
-❤️ بله
-</button>
-
-<button type="button" class="no" id="no" onmouseover="moveNo()">
-🤍 نخیر
-</button>
-
-</div>
-
-
-<div class="card hide" id="p2">
-
-<h1>زمان ملاقات 📅</h1>
-
-<p>
-یک روز را انتخاب کن ❤️
-</p>
-
-<input type="date" id="date" name="date" required>
-
-<input type="time" name="time" required>
-
-<br>
-
-<button type="button" class="yes" onclick="showPage(3)">
-ادامه ❤️
-</button>
-
-</div>
-<div class="card hide" id="p3">
-
-<h1>انتخاب خوراکی 🍽️</h1>
-
-<p>
-دوست داری چی بخوریم؟ 😊
-</p>
-
-
-<label class="food">
-<input type="radio" name="food" value="جوس" required>
-🥤 جوس
-</label>
-
-
-<label class="food">
-<input type="radio" name="food" value="پیتزا">
-🍕 پیتزا
-</label>
-
-
-<label class="food">
-<input type="radio" name="food" value="آیسکریم">
-🍦 آیسکریم
-</label>
-
-
-<label class="food">
-<input type="radio" name="food" value="کباب">
-🥩 کباب
-</label>
-
-
-<label class="food">
-<input type="radio" name="food" value="قابلی">
-🍚 قابلی
-</label>
-
-
-<label class="food">
-<input type="radio" name="food" value="منتو">
-🥟 منتو
-</label>
-
-
-<label class="food">
-<input type="radio" name="food" value="آشک">
-🥘 آشک
-</label>
-
-
+گاهی یک نفر وارد زندگی آدم می‌شود
+که بودنش آرامش می‌دهد...
 <br><br>
+معصومه عزیز، تو برای من فقط یک اسم نیستی،
+تو یک حس قشنگی هستی که باعث می‌شود لبخند بزنم.
+<br><br>
+امیدوارم همیشه خوشحال، موفق و پر از آرامش باشی.
+❤️
+</p>
 
-<button type="submit" class="yes">
-ثبت قرار ❤️
+<button onclick="alert('همیشه به یادت هستم ❤️')">
+کلیک کن
 </button>
 
 </div>
-
-
-
-<div class="card hide" id="p4">
-
-<div class="heart">❤️</div>
-
-<h1>معصومه عزیز</h1>
-
-<p>
-قرار ما ثبت شد 🌹<br><br>
-
-مهم نیست کجا برویم یا چی بخوریم...<br>
-قشنگ‌ترین بخش این ملاقات،
-لحظه‌ای است که کنار تو سپری می‌شود ❤️<br><br>
-
-امیدوارم این روز یکی از خاطره‌های زیبای زندگی‌مان شود ✨
-</p>
-
-</div>
-
-
-</form>
-
 
 
 <script>
-
-function showPage(number){
-
-document.querySelectorAll(".card").forEach(function(card){
-
-card.classList.add("hide");
-
-});
-
-document.getElementById("p"+number).classList.remove("hide");
-
+for(let i=0;i<30;i++){
+ let h=document.createElement("div");
+ h.className="fall";
+ h.innerHTML="❤️";
+ h.style.left=Math.random()*100+"%";
+ h.style.animationDuration=(3+Math.random()*5)+"s";
+ document.body.appendChild(h);
 }
-
-
-
-function moveNo(){
-
-let no=document.getElementById("no");
-
-no.style.position="absolute";
-
-no.style.left=Math.random()*250+"px";
-
-no.style.top=Math.random()*300+"px";
-
-}
-
-
-
-// محدود کردن تاریخ به یک هفته
-
-let today=new Date();
-
-let minDate=today.toISOString().split("T")[0];
-
-
-let future=new Date();
-
-future.setDate(today.getDate()+7);
-
-let maxDate=future.toISOString().split("T")[0];
-
-
-document.getElementById("date").min=minDate;
-
-document.getElementById("date").max=maxDate;
-
-
 </script>
-
 
 </body>
 </html>
